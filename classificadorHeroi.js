@@ -1,17 +1,36 @@
-let nomeHeroi = "Arthas";
-let experienciaHeroi = 8500;
+class Heroi {
+    constructor(nome, idade, tipo) {
+        this.nome = nome;
+        this.idade = idade;
+        this.tipo = tipo;
+    }
 
-function determinarNivel(xp) {
-  if (xp < 1000) return "Ferro";
-  if (xp <= 2000) return "Bronze";
-  if (xp <= 5000) return "Prata";
-  if (xp <= 7000) return "Ouro";
-  if (xp <= 8000) return "Platina";
-  if (xp <= 9000) return "Ascendente";
-  if (xp <= 10000) return "Imortal";
-  return "Radiante";
+    atacar() {
+        let ataque;
+
+        if (this.tipo === "mago") {
+            ataque = "magia";
+        } else if (this.tipo === "guerreiro") {
+            ataque = "espada";
+        } else if (this.tipo === "monge") {
+            ataque = "artes marciais";
+        } else if (this.tipo === "ninja") {
+            ataque = "shuriken";
+        } else {
+            ataque = "um ataque desconhecido";
+        }
+
+        console.log(`O ${this.tipo} atacou usando ${ataque}`);
+    }
 }
 
-let nivelHeroi = determinarNivel(experienciaHeroi);
 
-console.log(`O Herói de nome ${nomeHeroi} está no nível de ${nivelHeroi}`);
+const heroi1 = new Heroi("Arthas", 30, "guerreiro");
+const heroi2 = new Heroi("Jaina", 28, "mago");
+const heroi3 = new Heroi("Lee", 40, "monge");
+const heroi4 = new Heroi("Shen", 25, "ninja");
+
+heroi1.atacar();
+heroi2.atacar();
+heroi3.atacar();
+heroi4.atacar();
